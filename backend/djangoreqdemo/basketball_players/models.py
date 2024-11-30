@@ -2,41 +2,34 @@ import django.core
 import django.db.models
 
 
-class Nutrient(
+class BasketballPlayers(
     django.db.models.Model,
 ):
     
-    title = django.db.models.CharField(
+    name = django.db.models.CharField(
         max_length=150,
-        verbose_name="название",
+        verbose_name="имя",
         help_text="max 150 символов",
         unique=True,
     )
-
-    proteins = django.db.models.PositiveIntegerField(
-        "белки",
-        default=0,
-        null=True,
+    age = django.db.models.PositiveIntegerField(
+        "возраст",
     )
-
-    fats = django.db.models.PositiveIntegerField(
-        "жиры",
-        default=0,
-        null=True,
+    team = django.db.models.CharField(
+        "команда",
+        max_length=100,
     )
-
-    carbohydrates = django.db.models.PositiveIntegerField(
-        "углеводы",
-        default=0,
-        null=True,
-    )
-
     created = django.db.models.DateTimeField(
         "дата создания",
         auto_now_add=True,
         null=True,
     )
-
+    career = django.db.models.BooleanField(
+        "карьера",
+        help_text="продолжает карьеру",
+        default=True,
+        null=True,
+    )
     updated = django.db.models.DateTimeField(
         "дата изменения",
         auto_now=True,

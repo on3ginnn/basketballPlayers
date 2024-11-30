@@ -22,7 +22,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
 
     "users.apps.UsersConfig",
-    "nutrient.apps.NutrientConfig",
+    "basketball_players.apps.BasketballPlayersConfig",
 
 ]
 
