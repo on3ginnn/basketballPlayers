@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
 
     "users.apps.UsersConfig",
+    "team.apps.TeamConfig",
     "basketball_players.apps.BasketballPlayersConfig",
 
 ]

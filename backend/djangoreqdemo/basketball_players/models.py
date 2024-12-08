@@ -1,11 +1,21 @@
 import django.core
 import django.db.models
 
+import team.models
 
 class BasketballPlayers(
     django.db.models.Model,
 ):
-    
+    team = django.db.models.ForeignKey(
+        team.models.Team,
+        verbose_name="Команда",
+        on_delete=django.db.models.CASCADE,
+        related_name="team_member",
+        related_query_name="member",
+        default=None,
+        null=True,
+        help_text="Выберите команду",
+    )
     name = django.db.models.CharField(
         max_length=150,
         verbose_name="имя",
@@ -14,10 +24,6 @@ class BasketballPlayers(
     )
     age = django.db.models.PositiveIntegerField(
         "возраст",
-    )
-    team = django.db.models.CharField(
-        "команда",
-        max_length=100,
     )
     created = django.db.models.DateTimeField(
         "дата создания",
